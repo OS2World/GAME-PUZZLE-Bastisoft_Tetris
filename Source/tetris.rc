@@ -1,0 +1,80 @@
+#include "pm.h"
+
+#define id_Rot       101
+#define id_Gruen     102
+#define id_Blau      103
+#define id_Gelb      104
+#define id_Lila      105
+#define id_LBmp      106
+#define id_RBmp      107
+#define id_Icon      108
+
+#define id_HSDlg     301
+#define id_NameDlg   302
+#define id_NameEntry 303
+
+#define id_Name      400
+#define id_Point     500
+
+BITMAP id_Rot   "rot.bmp"
+BITMAP id_Gruen "gruen.bmp"
+BITMAP id_Blau  "blau.bmp"
+BITMAP id_Gelb  "gelb.bmp"
+BITMAP id_Lila  "lila.bmp"
+BITMAP id_LBmp  "links.bmp"
+BITMAP id_RBmp  "rechts.bmp"
+
+ICON id_Icon "tetris.ico"
+
+DLGTEMPLATE id_HSDlg LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG "Hi-Scores", id_HSDlg, 50, 50, 200, 160, WS_VISIBLE, FCF_TITLEBAR | FCF_SYSMENU
+    BEGIN
+        GROUPBOX " Die besten Zehn! ", -1, 5, 25, 188, 125
+
+        RTEXT "1", -1, 15, 129, 10, 8
+        RTEXT "2", -1, 15, 118, 10, 8
+        RTEXT "3", -1, 15, 107, 10, 8
+        RTEXT "4", -1, 15, 96, 10, 8
+        RTEXT "5", -1, 15, 85, 10, 8
+        RTEXT "6", -1, 15, 74, 10, 8
+        RTEXT "7", -1, 15, 63, 10, 8
+        RTEXT "8", -1, 15, 52, 10, 8
+        RTEXT "9", -1, 15, 41, 10, 8
+        RTEXT "10", -1, 15, 30, 10, 8
+
+        LTEXT "", id_Name+1, 35, 129, 105, 8
+        LTEXT "", id_Name+2, 35, 118, 105, 8
+        LTEXT "", id_Name+3, 35, 107, 105, 8
+        LTEXT "", id_Name+4, 35, 96, 105, 8
+        LTEXT "", id_Name+5, 35, 85, 105, 8
+        LTEXT "", id_Name+6, 35, 74, 105, 8
+        LTEXT "", id_Name+7, 35, 63, 105, 8
+        LTEXT "", id_Name+8, 35, 52, 105, 8
+        LTEXT "", id_Name+9, 35, 41, 105, 8
+        LTEXT "", id_Name+10, 35, 30, 105, 8
+
+        LTEXT "", id_Point+1, 140, 129, 43, 8
+        LTEXT "", id_Point+2, 140, 118, 43, 8
+        LTEXT "", id_Point+3, 140, 107, 43, 8
+        LTEXT "", id_Point+4, 140, 96, 43, 8
+        LTEXT "", id_Point+5, 140, 85, 43, 8
+        LTEXT "", id_Point+6, 140, 74, 43, 8
+        LTEXT "", id_Point+7, 140, 63, 43, 8
+        LTEXT "", id_Point+8, 140, 52, 43, 8
+        LTEXT "", id_Point+9, 140, 41, 43, 8
+        LTEXT "", id_Point+10, 140, 30, 43, 8
+
+        DEFPUSHBUTTON "Unglaublich!", DID_OK, 5, 5, 90, 13
+    END
+END
+
+DLGTEMPLATE id_NameDlg LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG "Neuer Hi-Score!", id_NameDlg, 50, 50 170, 55, WS_VISIBLE, FCF_TITLEBAR | FCF_SYSMENU
+        BEGIN
+        LTEXT "Bitte geben Sie Ihren Namen ein:", -1, 4, 40, 140, 8
+        ENTRYFIELD "", id_NameEntry, 6, 23, 157, 8, ES_MARGIN
+        DEFPUSHBUTTON "Ok", DID_OK, 105, 3, 60, 13
+        END
+END
